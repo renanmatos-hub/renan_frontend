@@ -1,6 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import api from './api';
 import {Link} from 'react-router-dom';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 
 const lista = [
     {id: 1, name: 'Estudar', done: false},
@@ -24,15 +30,15 @@ function App() {
   return(
     <>
       {loading ? <span>Carregando dados...</span>: <div/>}
-      <table>
+      <Table>
           {lista.map(item => (
-            <tr key={item.id}>
-              <td>{item.autor}</td>
-              <td>{item.titulo}</td>
-              <td><input type="checkbox" checked={item.lido}/></td>
-          </tr> 
+            <TableRow key={item.id}>
+              <TableCell>{item.autor}</TableCell>
+              <TableCell>{item.titulo}</TableCell>
+              <TableCell><input type="checkbox" checked={item.lido}/></TableCell>
+          </TableRow> 
           ))}     
-      </table>
+      </Table>
       <Link to="/create">Adicionar</Link>
     </>
   )
