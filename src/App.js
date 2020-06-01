@@ -12,6 +12,8 @@ import Button from '@material-ui/core/Button';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 
+
+
 function App() {
 
     const[lista, setLista] = useState([]); //imutabilidade
@@ -24,20 +26,36 @@ function App() {
             setLoading(false);
         })
     }, [])
+    
+    const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
+
+const classes = useStyles();
 
   return(
     <>
+    <div className={classes.root}>
     <AppBar position="static">
         <Toolbar>
-          <IconButton aria-label="menu">
+           <IconButton edge="start" className={classes.menuButton}  color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6">
-            Livros lidos
+          <Typography variant="h6" className={classes.title}  color="#128cff">
+            Tela Inicial
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
+    </div>
       {loading ? <span>Carregando dados...</span>: <div/>}
       <Table>
           {lista.map(item => (
@@ -48,7 +66,8 @@ function App() {
           </TableRow> 
           ))}     
       </Table>
-      <Link to="/create">Adicionar</Link>
+      <Button color="inherit"><Link to="/create">Adicionar</Link></Button>
+      
     </>
   )
 }
