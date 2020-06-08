@@ -141,14 +141,14 @@ const classes = useStyles();
                         variant="outlined" 
                         size="small" 
                         color="secondary">Deletar</Button>
-                    </TableCell>
+                </TableCell>
           </TableRow> 
           ))}     
       </Table>
     <Button 
         onClick={openModal}
         variant="contained" 
-        color="primary" 
+        color="secondary" 
         style={{marginTop: '20px'}}>
         Adicionar
     </Button>
@@ -192,10 +192,10 @@ const classes = useStyles();
                 />                
             </DialogContent>
             <DialogActions>
-                <Button onClick={closeModal} color="primary">
+                <Button onClick={closeModal} color="secondary">
                     Cancelar
                 </Button>
-                <Button color="primary" onClick={addLivro}>
+                <Button color="secondary" onClick={addLivro}>
                     Salvar
                 </Button>
             </DialogActions>

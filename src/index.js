@@ -2,16 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#ec407a',
+    },
+    secondary: {
+      main: '#880e4f',
+    },
+  },
+});
 
 ReactDOM.render(
-    <BrowserRouter>
-        <Switch>
-            <Route path = "/" exact>
+                <ThemeProvider theme={theme}>
                 <App/>
-            </Route>
-            <Route path = "/create">
-                <h1>Cadastro</h1>
-            </Route>
-        </Switch>            
-    </BrowserRouter>
+                </ThemeProvider>
     , document.getElementById('root'));
